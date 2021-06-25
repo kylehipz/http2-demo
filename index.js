@@ -28,5 +28,8 @@ app.use(serve("./static"));
 const key = fs.readFileSync("./certs/key.pem", "UTF8");
 const cert = fs.readFileSync("./certs/cert.pem", "UTF8");
 
-https.createServer({ key, cert }, app.callback()).listen(3000, () => console.log('https on port 3000'));
-http2.createSecureServer({ key, cert }, app.callback()).listen(3001, () => console.log('http2 on port 3001'));
+https.createServer({ key, cert }, app.callback())
+	.listen(3000, () => console.log('https on port 3000'));
+
+http2.createSecureServer({ key, cert }, app.callback())
+		.listen(3001, () => console.log('http2 on port 3001'));
